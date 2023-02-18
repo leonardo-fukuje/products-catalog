@@ -1,6 +1,7 @@
 package com.devsuperior.dscatalog.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -18,14 +19,29 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private Instant createdAt;
+
 	
 	public Category() {
 		
 	}
 
-	public Category(Long id, String name) {
+
+	public Category(Long id, String name, Instant createdAt) {
+		super();
 		this.id = id;
 		this.name = name;
+		this.createdAt = createdAt;
+	}
+
+
+
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Instant createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public Long getId() {
